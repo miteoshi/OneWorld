@@ -1,103 +1,194 @@
-import Image from "next/image";
+import MultiBackground from "@/components/multi-background"
+import InteractiveTitle from "@/components/interactive-title"
+import { Marquee } from "@/components/marquee"
+import Navbar from "@/components/navbar"
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function Home() {
+export default function Page() {
+  
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="relative min-h-screen text-foreground pb-24">
+      <Navbar />
+      {/* HERO */}
+      <section
+        id="home"
+        className="relative min-h-[92svh] flex items-center justify-center text-center px-6"
+      >
+        <MultiBackground />
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <InteractiveTitle text="ONEWORLD" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* VISION */}
+      <section id="vision" className="relative py-20 md:py-28 bg-black">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
+            {/* Kicker + Title */}
+            <div className="md:col-span-5">
+              <p className="text-xs tracking-[0.35em] uppercase opacity-70">
+                Our Vision
+              </p>
+              <h2 className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-balance">
+                One mark. One focus. Work that stands without context.
+              </h2>
+            </div>
+
+            {/* Copy blocks with vertical rule styling */}
+            <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+              <Link
+                href="/design"
+                className="group block border-l pl-5 hover:opacity-90 transition-colors duration-200 ease-linear"
+              >
+                <h3 className="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 ease-linear group-hover:text-[#fca86f]">
+                  Design
+                </h3>
+                <p className="mt-2 text-sm md:text-base opacity-80">
+                  Sharp contrast. Disciplined geometry. Universal grid as
+                  language.
+                </p>
+              </Link>
+              <Link
+                href="/music"
+                className="group block border-l pl-5 hover:opacity-90 transition-colors duration-200 ease-linear"
+              >
+                <h3 className="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 ease-linear group-hover:text-[#fca86f]">
+                  Music
+                </h3>
+                <p className="mt-2 text-sm md:text-base opacity-80">
+                  Rhythm as identity—clean structure cut with raw energy.
+                </p>
+              </Link>
+              <Link
+                href="/visuals"
+                className="group block border-l pl-5 hover:opacity-90 transition-colors duration-200 ease-linear"
+              >
+                <h3 className="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 ease-linear group-hover:text-[#fca86f]">
+                  Visuals
+                </h3>
+                <p className="mt-2 text-sm md:text-base opacity-80">
+                  Framed with intent. Nothing accidental—everything deliberate.
+                </p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INTRODUCTION */}
+      <section id="intro" className="bg-black border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:py-20 grid md:grid-cols-2 gap-8 items-center">
+          <div className="aspect-[16/10] w-full overflow-hidden rounded-md border border-white/10">
+            <img
+              src="/images/covers/1.webp"
+              alt="Introduction — stencil logo on brick wall with editorial panel"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div>
+            <p className="text-xs tracking-[0.35em] uppercase opacity-70">
+              Introduction
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-balance">
+              We set the coordinates.
+            </h2>
+            <p className="mt-4 leading-relaxed opacity-85">
+              Born from concrete, built with a global view. We see the pavement
+              — we see the planet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
+      <section id="whatwedo" className="bg-black border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:py-20 grid md:grid-cols-2 gap-8 items-center">
+          <div className="order-2 md:order-1">
+            <p className="text-xs tracking-[0.35em] uppercase opacity-70">
+              What We Do
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-balance">
+              One system. Many outputs.
+            </h2>
+            <ul className="mt-4 space-y-2 opa city-85 list-disc pl-5">
+              <li>Music — sophisticated, future-focused sound.</li>
+              <li>Apparel — high-end minimal streetwear.</li>
+              <li>Visuals — photography and design that demand attention.</li>
+            </ul>
+          </div>
+          <div className="order-1 md:order-2 aspect-[16/10] w-full overflow-hidden rounded-md border border-white/10">
+            <img
+              src="/images/covers/2.webp"
+              alt="What we do — editorial slide with artwork and portrait"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section
+        id="contact"
+        className="relative py-20 md:py-28 bg-black border-t border-white/10"
+      >
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-7">
+              <p className="text-xs tracking-[0.35em] uppercase opacity-70">
+                Contact
+              </p>
+              <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-balance">
+                Collaboration with clarity.
+              </h2>
+              <p className="mt-4 leading-relaxed text-sm md:text-base opacity-85">
+                For projects across music, apparel, or visuals—reach out
+                directly. Precision first, noise last.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-6">
+                <div className="border border-white/10 rounded-md p-5">
+                  <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
+                    Instagram
+                  </h3>
+                  <p className="mt-2 text-sm">@THATONEWORLD</p>
+                </div>
+                <div className="border border-white/10 rounded-md p-5">
+                  <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
+                    Email
+                  </h3>
+                  <p className="mt-2 text-sm break-all">
+                    thatoneworld.contactus@gmail.com
+                  </p>
+                </div>
+                <div className="border border-white/10 rounded-md p-5">
+                  <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
+                    Location
+                  </h3>
+                  <p className="mt-2 text-sm">THE GLOBE.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Graphic panel echoing brand language */}
+            <div className="md:col-span-5">
+              <div className="aspect-video w-full overflow-hidden rounded-md border border-white/10">
+                <img
+                  src="/images/covers/8.webp"
+                  alt="Helmet silhouette with emblem background"
+                  className="h-full w-full object-cover grayscale-[12%] contrast-110"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Marquee text="ONE WORLD — FOCUS — CRAFT — " />
+
+      <footer className="relative py-10 text-center text-xs opacity-70">
+        © {new Date().getFullYear()} ONEWORLD
       </footer>
-    </div>
+    </main>
   );
 }
