@@ -81,7 +81,7 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-6 py-14 md:py-20 grid md:grid-cols-2 gap-8 items-center">
           <div className="aspect-[16/10] w-full overflow-hidden rounded-md border border-white/10">
             <img
-              src="/images/covers/1.webp"
+              src="/images/logos/onewall.png"
               alt="Introduction — stencil logo on brick wall with editorial panel"
               className="h-full w-full object-cover"
             />
@@ -119,7 +119,7 @@ export default function Page() {
           </div>
           <div className="order-1 md:order-2 aspect-[16/10] w-full overflow-hidden rounded-md border border-white/10">
             <img
-              src="/images/covers/2.webp"
+              src="/images/logos/contact.png"
               alt="What we do — editorial slide with artwork and portrait"
               className="h-full w-full object-cover"
             />
@@ -174,7 +174,7 @@ export default function Page() {
             <div className="md:col-span-5">
               <div className="aspect-video w-full overflow-hidden rounded-md border border-white/10">
                 <img
-                  src="/images/covers/8.webp"
+                  src="/images/logos/bwonewall.png"
                   alt="Helmet silhouette with emblem background"
                   className="h-full w-full object-cover grayscale-[12%] contrast-110"
                 />
