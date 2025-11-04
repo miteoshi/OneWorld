@@ -14,7 +14,7 @@ export default async function MusicPage() {
               <span className="mr-2 font-semibold tracking-wide uppercase text-[10px] md:text-xs opacity-80">
                 Latest
               </span>
-              New drop: ONEWORLD Collective Vol. 1 is out now —
+              New drop: ONEWORLD Collective Vol. 1 is out now
               <Link
                 href="#"
                 className="ml-2 underline decoration-dotted underline-offset-4"
