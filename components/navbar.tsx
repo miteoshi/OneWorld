@@ -34,11 +34,11 @@ export default function Navbar({
                 className="group flex items-center gap-3 text-sm font-semibold tracking-wider uppercase"
               >
                 <Image
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                   src="/images/logos/logo.png"
                   alt="ONEWORLD logo"
-                  className="h-5 w-auto md:h-5"
+                  className="h-8 w-auto md:h-8"
                   priority
                 />
                 <span
@@ -46,7 +46,7 @@ export default function Navbar({
                     showSearch ? "hidden md:inline" : ""
                   }`}
                 >
-                  ONEWORLD
+                  SYRCLE
                 </span>
               </Link>
 

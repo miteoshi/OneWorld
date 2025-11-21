@@ -7,8 +7,8 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "One World",
-  description: "Design and music by One World.",
+  title: "SYRCLE",
+  description: "Design and music by SYRCLE.",
 }
 
 export default function RootLayout({

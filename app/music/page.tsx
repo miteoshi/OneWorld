@@ -36,7 +36,7 @@ export default async function MusicPage() {
 
         <ArtistList />
       </section>
-      <Marquee text="ONE WORLD — FOCUS — CRAFT — " />
+      <Marquee text="SYRCLE — FOCUS — CRAFT — " />
     </main>
   );
 }

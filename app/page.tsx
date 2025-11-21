@@ -17,7 +17,7 @@ export default function Page() {
       >
         <MultiBackground />
         <div className="relative z-10 max-w-6xl mx-auto">
-          <InteractiveTitle text="ONEWORLD" />
+          <InteractiveTitle text="SYRCLE" />
         </div>
       </section>
 
@@ -151,7 +151,7 @@ export default function Page() {
                   <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
                     Instagram
                   </h3>
-                  <p className="mt-2 text-sm">@THATONEWORLD</p>
+                  <p className="mt-2 text-sm">@SYRCLE</p>
                 </div>
                 <div className="border border-white/10 rounded-md p-5">
                   <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
@@ -184,10 +184,10 @@ export default function Page() {
         </div>
       </section>
 
-      <Marquee text="ONE WORLD — FOCUS — CRAFT — " />
+      <Marquee text="SYRCLE — FOCUS — CRAFT — " />
 
       <footer className="relative py-10 text-center text-xs opacity-70">
-        © {new Date().getFullYear()} ONEWORLD
+        © {new Date().getFullYear()} SYRCLE
       </footer>
     </main>
   );
