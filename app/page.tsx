@@ -42,11 +42,11 @@ export default function Page() {
                 className="group block border-l pl-5 hover:opacity-90 transition-colors duration-200 ease-linear"
               >
                 <h3 className="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 ease-linear group-hover:text-[#fca86f]">
-                  Design
+                  Merch
                 </h3>
                 <p className="mt-2 text-sm md:text-base opacity-80">
-                  Sharp contrast. Disciplined geometry. Universal grid as
-                  language.
+                  A versatile collection built on clarity, comfort, and
+                  identity.
                 </p>
               </Link>
               <Link
