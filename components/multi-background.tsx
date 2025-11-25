@@ -26,38 +26,80 @@ const IMAGES = [
   "/images/covers/21.jpg",
 ];
 
-const ROWS = 3;
-const COLS = 7;
-const TILES = ROWS * COLS;
+// choose rows & cols based on viewport width
+function getLayout(width: number) {
+  if (width < 640) {
+    // mobile
+    const rows = 2;
+    const cols = 3;
+    return { rows, cols, tiles: rows * cols };
+  } else if (width < 1024) {
+    // tablet / small laptop
+    const rows = 3;
+    const cols = 4;
+    return { rows, cols, tiles: rows * cols };
+  } else {
+    // desktop - your original 3x7
+    const rows = 3;
+    const cols = 7;
+    return { rows, cols, tiles: rows * cols };
+  }
+}
 
 function swapRandom<T>(arr: T[]): T[] {
+  if (arr.length < 2) return arr;
   const a = Math.floor(Math.random() * arr.length);
   let b = Math.floor(Math.random() * arr.length);
-  if (arr.length > 1)
-    while (b === a) b = Math.floor(Math.random() * arr.length);
+  while (b === a) b = Math.floor(Math.random() * arr.length);
   const next = arr.slice();
   [next[a], next[b]] = [next[b], next[a]];
   return next;
 }
 
 export default function MultiBackground() {
-  const initial = useMemo(() => Array.from({ length: TILES }, (_, i) => i), []);
-  const [map, setMap] = useState<number[]>(initial);
+  // start with desktop layout as a safe default
+  const [layout, setLayout] = useState(() => {
+    const rows = 3;
+    const cols = 7;
+    return { rows, cols, tiles: rows * cols };
+  });
+
+  const { rows, cols, tiles } = layout;
+
+  // map is the tileIndex permutation that controls the top/left shuffle
+  const [map, setMap] = useState<number[]>(() =>
+    Array.from({ length: tiles }, (_, i) => i)
+  );
+
   const rafRef = useRef<number | null>(null);
 
-  // Randomize tile styles once on mount: either "grayscale" or "tint"
-  const imageStyles = useMemo(() => {
-    return Array.from(
-      { length: TILES },
-      () => (Math.random() < 0.4 ? "tint" : "grayscale") // 40% tinted, 60% grayscale
-    );
-  }, []);
+  // Randomize tile styles once per layout (either "grayscale" or "tint")
+  const imageStyles = useMemo(
+    () =>
+      Array.from(
+        { length: tiles },
+        () =>
+          (Math.random() < 0.4 ? "tint" : "grayscale") as "tint" | "grayscale"
+      ),
+    [tiles]
+  );
 
+  // When layout (tile count) changes, adjust map size & contents
+  useEffect(() => {
+    setMap((prev) => {
+      const next = Array.from({ length: tiles }, (_, i) => prev[i] ?? i);
+      // ensure indices are within range [0, tiles-1]
+      return next.map((v) => (v < tiles ? v : v % tiles));
+    });
+  }, [tiles]);
+
+  // Shuffle map periodically (keeps your top/left animation behavior)
   useEffect(() => {
     const id = setInterval(() => setMap((m) => swapRandom(m)), 4500);
     return () => clearInterval(id);
   }, []);
 
+  // Breathing animation
   useEffect(() => {
     let t = 0;
     const loop = () => {
@@ -74,6 +116,23 @@ export default function MultiBackground() {
     };
   }, []);
 
+  // Update layout when screen resizes
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const next = getLayout(width);
+      setLayout((prev) =>
+        prev.rows === next.rows && prev.cols === next.cols ? prev : next
+      );
+    };
+
+    handleResize(); // run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div
       aria-hidden
@@ -81,12 +140,12 @@ export default function MultiBackground() {
     >
       <div className="absolute inset-0" style={{ filter: "blur(2px)" }}>
         {map.map((tileIndex, i) => {
-          const r = Math.floor(tileIndex / COLS);
-          const c = tileIndex % COLS;
-          const top = (r * 100) / ROWS;
-          const left = (c * 100) / COLS;
-          const width = 100 / COLS;
-          const height = 100 / ROWS;
+          const r = Math.floor(tileIndex / cols);
+          const c = tileIndex % cols;
+          const top = (r * 100) / rows;
+          const left = (c * 100) / cols;
+          const width = 100 / cols;
+          const height = 100 / rows;
           const img = IMAGES[i % IMAGES.length];
 
           const isTinted = imageStyles[i] === "tint";

@@ -42,6 +42,7 @@ export default function Navbar({
                   priority
                 />
                 <span
+               
                   className={`group-hover:opacity-80 ${
                     showSearch ? "hidden md:inline" : ""
                   }`}

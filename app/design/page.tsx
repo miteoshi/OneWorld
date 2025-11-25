@@ -115,7 +115,7 @@ export default function DesignPage() {
 
         <header className="mb-7">
           <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">
-            Designs
+            Merch
           </h1>
           <p className="opacity-70 text-sm md:text-base">
             Explore the new merchandise collection.

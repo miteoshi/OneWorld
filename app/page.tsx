@@ -27,10 +27,15 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
             {/* Kicker + Title */}
             <div className="md:col-span-5">
-              <p className="text-xs tracking-[0.35em] uppercase opacity-70">
+              <p
+                className="text-xs tracking-[0.35em] uppercase opacity-70"
+              >
                 Our Vision
               </p>
-              <h2 className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-balance">
+              <h2
+
+                className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-balance"
+              >
                 One mark. One focus. Work that stands without context.
               </h2>
             </div>
