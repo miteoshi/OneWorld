@@ -228,10 +228,10 @@ return (
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
-        <h1 className="font-unbounded text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-20 md:mb-28 text-balance">
+        <h1 className="font-unbounded text-5xl md:text-6xl lg:text-6xl font-bold text-white mb-20 md:mb-28 text-balance">
           READY FOR A NEW ERA ?
         </h1>
-        <div className="flex justify-center">
+        <div className="font-unbounded flex justify-center">
           <div
             className="container-button"
             onClick={handlePreOrderClick}
@@ -259,10 +259,10 @@ return (
           <p className="font-unbounded text-xs tracking-[0.35em] uppercase opacity-70 mb-4">
             Pre-Order
           </p>
-          <h2 className="font-unbounded text-4xl md:text-5xl font-bold text-white text-balance">
+          <h2 className="font-unbounded text-4xl md:text-4xl font-bold text-white text-balance">
             Join the Movement
           </h2>
-          <p className="font-unbounded  mt-4 text-base opacity-75 max-w-2xl mx-auto">
+          <p className="font-unbounded text-sm mt-4 text-base opacity-75 max-w-2xl mx-auto">
             Secure your spot for the new era. Fill out the form below to reserve
             your jersey.
           </p>
