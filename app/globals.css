@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&display=swap");
+
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -130,4 +133,183 @@ html {
 /* Offset all in-page anchors so content isn't hidden by the fixed navbar */
 [id] {
   scroll-margin-top: 96px; /* approx navbar height + margin */
+}
+
+/* ============================================
+   SYRCLE — Custom 3D Preorder Button (Final)
+   JOIN THE SYRCLE forced to one line
+   ============================================ */
+
+.container-button,
+.container-button * {
+  cursor: pointer;
+}
+
+.container-button {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    "bt-1 bt-2 bt-3" 
+    "bt-4 bt-5 bt-6";
+  position: relative;
+  perspective: 800px;
+  padding: 0;
+
+  /* FINAL SIZE */
+  width: 300px;
+  height: 60px;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.container-button:active {
+  transform: scale(0.95);
+}
+
+.hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+}
+
+.bt-1 { grid-area: bt-1; }
+.bt-2 { grid-area: bt-2; }
+.bt-3 { grid-area: bt-3; }
+.bt-4 { grid-area: bt-4; }
+.bt-5 { grid-area: bt-5; }
+.bt-6 { grid-area: bt-6; }
+
+/* ===== Hover Tilts ===== */
+.bt-1:hover ~ button {
+  transform: rotateX(15deg) rotateY(-15deg);
+  box-shadow: -2px -2px #18181888;
+}
+.bt-1:hover ~ button::after {
+  animation: shake 0.5s ease-in-out 0.3s;
+  text-shadow: -2px -2px #18181888;
+}
+
+.bt-3:hover ~ button {
+  transform: rotateX(15deg) rotateY(15deg);
+  box-shadow: 2px -2px #18181888;
+}
+.bt-3:hover ~ button::after {
+  animation: shake 0.5s ease-in-out 0.3s;
+  text-shadow: 2px -2px #18181888;
+}
+
+.bt-4:hover ~ button {
+  transform: rotateX(-15deg) rotateY(-15deg);
+  box-shadow: -2px 2px #18181888;
+}
+.bt-4:hover ~ button::after {
+  animation: shake 0.5s ease-in-out 0.3s;
+  text-shadow: -2px 2px #18181888;
+}
+
+.bt-6:hover ~ button {
+  transform: rotateX(-15deg) rotateY(15deg);
+  box-shadow: 2px 2px #18181888;
+}
+.bt-6:hover ~ button::after {
+  animation: shake 0.5s ease-in-out 0.3s;
+  text-shadow: 2px 2px #18181888;
+}
+
+/* ===== Hover Text Expand ===== */
+.hover:hover ~ button::before {
+  background: transparent;
+}
+
+.hover:hover ~ button::after {
+  content: "JOIN THE SYRCLE";
+
+  /* place hover text ABOVE button */
+  top: -150%;
+  transform: translate(-50%, 0);
+
+  /* FINAL FIT SIZE */
+  font-size: 30px;       /* fits 300px width */
+  white-space: nowrap;   /* 🔥 force single line */
+  letter-spacing: 1px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+/* ===== Actual Button ===== */
+.container-button button {
+  position: absolute;
+  padding: 0;
+
+  width: 300px;
+  height: 60px;
+
+  background: transparent;
+  font-size: 20px;
+
+  border: 2px solid #ffffffd9;
+  border-radius: 30px;
+
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Background Layer */
+.container-button button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 300px;
+  height: 60px;
+
+  background-color: #f6f6f61a;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+}
+
+/* Text Layer */
+.container-button button::after {
+  content: "PRE ORDER";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 300px;
+  height: 60px;
+  line-height: 60px;
+
+  background: transparent;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+
+  white-space: nowrap;  /* ensure "PRE ORDER" never wraps */
+  text-align: center;
+
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+}
+
+/* Shake animation */
+@keyframes shake {
+  0%   { left: 45%; }
+  25%  { left: 54%; }
+  50%  { left: 48%; }
+  75%  { left: 52%; }
+  100% { left: 50%; }
+}
+
+
+
+.font-unbounded {
+  font-family: "Unbounded", sans-serif;
 }

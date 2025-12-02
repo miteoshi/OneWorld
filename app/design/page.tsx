@@ -104,7 +104,7 @@ export default function DesignPage() {
               </span>
               New drop: ELITE I Get it while it’s
               <Link
-                href="#"
+                href="/"
                 className="ml-2 underline decoration-dotted underline-offset-4"
               >
                 Available

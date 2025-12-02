@@ -63,6 +63,7 @@ export default function Navbar({
                   </button>
 
                   <ul className="hidden md:flex items-center gap-6 text-sm">
+                    
                     <li>
                       <Link href="#vision" className="hover:opacity-80">
                         Vision
