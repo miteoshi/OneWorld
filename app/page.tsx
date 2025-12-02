@@ -5,7 +5,7 @@ import { Marquee } from "@/components/marquee"
 import Navbar from "@/components/navbar"
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import LandingNavbar from "@/components/landingNavbar"
 
 // export default function Page() {
@@ -204,6 +204,7 @@ import LandingNavbar from "@/components/landingNavbar"
 
 export default function Page(){
 const formSectionRef = useRef<HTMLDivElement>(null);
+ const [loading, setLoading] = useState(true);
 
 const handlePreOrderClick = () => {
   formSectionRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -268,7 +269,15 @@ return (
         </div>
 
         {/* Form Container - Seamlessly integrated */}
-        <div className="bg-gradient-to-b from-white/5 to-white/0 border border-white/10 rounded-xl p-8 md:p-12 backdrop-blur-sm">
+        <div className="relative bg-gradient-to-b from-white/5 to-white/0 border border-white/10 rounded-xl p-8 md:p-12 backdrop-blur-sm">
+          {/* Loader Animation */}
+          {loading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm rounded-xl z-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-4 border-white border-t-transparent"></div>
+            </div>
+          )}
+
+          {/* Google Form */}
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLScpISgbja2LLhzCX_a1HhTvd-ofo-Djai0mf5HDqSu02fRRuQ/viewform?embedded=true"
             width="100%"
@@ -276,14 +285,77 @@ return (
             frameBorder="0"
             marginHeight={0}
             marginWidth={0}
-            className="w-full"
+            className="w-full rounded-lg"
             style={{ minHeight: "800px" }}
-          >
-            Loading…
-          </iframe>
+            onLoad={() => setLoading(false)} // ⬅ hides loader
+          />
         </div>
       </div>
     </section>
+    <section
+      id="contact"
+      className="relative py-20 md:py-28 bg-black border-t border-white/10"
+    >
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+          <div className="md:col-span-7">
+            <p className="text-xs tracking-[0.35em] uppercase opacity-70">
+              Support
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-balance">
+              Facing any problems?
+            </h2>
+            <p className="mt-4 leading-relaxed text-sm md:text-base opacity-85">
+              For any inquiries or support, feel free to reach out. We're here
+              to help you with questions, collaborations, or assistance of any
+              kind.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-6">
+              <div className="border border-white/10 rounded-md p-5">
+                <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
+                  Instagram
+                </h3>
+
+                <Link
+                  href="https://instagram.com/fullsyrcle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 text-sm hover:opacity-80 no-underline inline-block"
+                >
+                  @fullsyrcle
+                </Link>
+              </div>
+              <div className="border border-white/10 rounded-md p-5">
+                <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
+                  Email
+                </h3>
+                <a
+                  href="mailto:whosinyoursyrcle@gmail.com"
+                  className="mt-2 text-sm break-all hover:opacity-80 transition cursor-pointer"
+                >
+                  whosinyoursyrcle@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Graphic panel echoing brand language */}
+          <div className="md:col-span-5">
+            <div className="aspect-video w-full overflow-hidden rounded-md border border-white/10">
+              <img
+                src="/images/logos/bwonewall.png"
+                alt="Helmet silhouette with emblem background"
+                className="h-full w-full object-cover grayscale-[12%] contrast-110"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer className="relative py-10 text-center text-xs opacity-70">
+      © {new Date().getFullYear()} SYRCLE
+    </footer>
   </main>
 );
 }

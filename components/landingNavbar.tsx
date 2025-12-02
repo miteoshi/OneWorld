@@ -30,7 +30,7 @@ export default function LandingNavbar() {
               <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <Link
-                    href="/space"
+                    href="#"
                     className="font-unbounded hover:opacity-80 tracking-wider uppercase"
                   >
                     syrcle.space

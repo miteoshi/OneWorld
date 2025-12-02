@@ -27,15 +27,10 @@ export default function SpacePage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
             {/* Kicker + Title */}
             <div className="md:col-span-5">
-              <p
-                className="text-xs tracking-[0.35em] uppercase opacity-70"
-              >
+              <p className="text-xs tracking-[0.35em] uppercase opacity-70">
                 Our Vision
               </p>
-              <h2
-
-                className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-balance"
-              >
+              <h2 className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-balance">
                 One mark. One focus. Work that stands without context.
               </h2>
             </div>
@@ -156,22 +151,33 @@ export default function SpacePage() {
                   <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
                     Instagram
                   </h3>
-                  <p className="mt-2 text-sm">@SYRCLE</p>
+
+                  <Link
+                    href="https://instagram.com/fullsyrcle"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 text-sm hover:opacity-80 no-underline inline-block"
+                  >
+                    @fullsyrcle
+                  </Link>
                 </div>
                 <div className="border border-white/10 rounded-md p-5">
                   <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
                     Email
                   </h3>
-                  <p className="mt-2 text-sm break-all">
-                    thatoneworld.contactus@gmail.com
-                  </p>
+                  <a
+                    href="mailto:whosinyoursyrcle@gmail.com"
+                    className="mt-2 text-sm break-all hover:opacity-80 transition cursor-pointer"
+                  >
+                    whosinyoursyrcle@gmail.com
+                  </a>
                 </div>
-                <div className="border border-white/10 rounded-md p-5">
+                {/* <div className="border border-white/10 rounded-md p-5">
                   <h3 className="font-semibold tracking-wide uppercase text-xs opacity-90">
                     Location
                   </h3>
                   <p className="mt-2 text-sm">THE GLOBE.</p>
-                </div>
+                </div> */}
               </div>
             </div>
 
