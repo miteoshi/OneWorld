@@ -10,7 +10,7 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "SYRCLE",
-  description: "Design and music by SYRCLE.",
+  description: "WHO'S IN YOUR CIRCLE?",
 }
 
 const myFont = localfont({
