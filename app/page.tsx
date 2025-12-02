@@ -252,38 +252,38 @@ return (
     {/* Form Section */}
 
     <section ref={formSectionRef} className="w-full bg-black py-20">
-      <div className="w-full px-0">
+      <div className="mx-auto max-w px-6">
         {/* Header */}
-        <div className="mb-12 text-center px-6">
+        <div className="mb-12 text-center">
           <p className="font-unbounded text-xs tracking-[0.35em] uppercase opacity-70 mb-4">
             Pre-Order
           </p>
           <h2 className="font-unbounded text-4xl md:text-5xl font-bold text-white text-balance">
             Join the Movement
           </h2>
-          <p className="font-unbounded mt-4 text-base opacity-75 max-w-2xl mx-auto">
+          <p className="font-unbounded  mt-4 text-base opacity-75 max-w-2xl mx-auto">
             Secure your spot for the new era. Fill out the form below to reserve
             your jersey.
           </p>
         </div>
 
-        {/* Full-Width Form */}
-
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLScpISgbja2LLhzCX_a1HhTvd-ofo-Djai0mf5HDqSu02fRRuQ/viewform?embedded=true"
-          width="100%"
-          height="1400"
-          frameBorder="0"
-          marginHeight={0}
-          marginWidth={0}
-          className="w-full"
-          style={{ minHeight: "1000px" }}
-        >
-          Loading…
-        </iframe>
+        {/* Form Container - Seamlessly integrated */}
+        <div className="bg-gradient-to-b from-white/5 to-white/0 border border-white/10 rounded-xl p-8 md:p-12 backdrop-blur-sm">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLScpISgbja2LLhzCX_a1HhTvd-ofo-Djai0mf5HDqSu02fRRuQ/viewform?embedded=true"
+            width="100%"
+            height="1200"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            className="w-full"
+            style={{ minHeight: "800px" }}
+          >
+            Loading…
+          </iframe>
+        </div>
       </div>
     </section>
-    {/* <Marquee text="SYRCLE — FOCUS — CRAFT — " /> */}
   </main>
 );
 }

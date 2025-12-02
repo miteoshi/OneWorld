@@ -13,7 +13,7 @@ export default function LandingNavbar() {
               <Link
                 href="/"
                 aria-label="ONEWORLD - Home"
-                className="group flex items-center gap-3 text-sm font-semibold tracking-wider uppercase"
+                className="font-unbounded group flex items-center gap-3 text-sm  tracking-wider uppercase"
               >
                 <Image
                   width={300}
@@ -31,7 +31,7 @@ export default function LandingNavbar() {
                 <li>
                   <Link
                     href="/space"
-                    className="hover:opacity-80 font-semibold tracking-wider uppercase"
+                    className="font-unbounded hover:opacity-80 tracking-wider uppercase"
                   >
                     syrcle.space
                   </Link>
